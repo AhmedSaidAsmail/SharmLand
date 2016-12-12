@@ -320,81 +320,6 @@ img {
 	background:rgba(255, 255, 255, 0.5);
 	border-radius:15px;
 }
-#pox {
-	width: 247px;
-	height: auto;
-}
-#pox .top {
-	width: 247px;
-	height: 23px;
-	background: url('../images/left-side-box-top.png') no-repeat top left;
-}
-#pox .bottom {
-	width: 247px;
-	height: 18px;
-	background: url('../images/left-side-box-bottom.png') no-repeat left top;
-}
-#pox .body {
-	width: 247px;
-	background: url('../images/left-side-box-body.png') repeat-y left top;
-}
-#label-cover {
-	position: relative;
-}
-#label-cover .label_pdf {
-	position: absolute;
-	background: url('../images/pdf.png') no-repeat left top;
-	width: 237px;
-	height: 44px;
-	left: -15px;
-	top: 0px;
-	z-index: 1000;
-}
-#label-cover .label {
-	position: absolute;
-	background: url('../images/follow-us-label.png') no-repeat left top;
-	width: 237px;
-	height: 44px;
-	left: -25px;
-	top: 0px;
-	z-index: 1000;
-}
-#label-cover .label2 {
-	position: absolute;
-	background: url('../images/Review.png') no-repeat left top;
-	width: 285px;
-	height: 50px;
-	left: -10px;
-	top: 0px;
-	z-index: 1000;
-}
-#label-cover .label4 {
-	position: absolute;
-	background: url('../images/pay.png') no-repeat left top;
-	width: 285px;
-	height: 50px;
-	left: -10px;
-	top: 0px;
-	z-index: 1000;
-}
-#label-cover .label3 {
-	position: absolute;
-	background: url('../images/plain.png') no-repeat left top;
-	width: 285px;
-	height: 80px;
-	left: -10px;
-	top: 0px;
-	z-index: 1000;
-}
-#follow {
-	padding-top: 40px;
-	margin: 0 auto;
-	width: 172px;
-}
-#follow:after {
-	display: block;
-	clear: both;
-}
 #insider {
 	float: left;
 	display: inline;
@@ -459,17 +384,13 @@ img {
 	padding-left: 30px;
 	padding-top: 3px;
 }
-.exc-title
-{
+.exc-title {
 	font-family: 'Muli', sans-serif;
 	font-weight:bold;
-	}
-#remove-cart-item{
-color:#f42503;
-	}
-	
-	
-	
+}
+#remove-cart-item {
+	color:#f42503;
+}
 /** end new css **/
 #insider .box1-top {
 	width: 743px;
