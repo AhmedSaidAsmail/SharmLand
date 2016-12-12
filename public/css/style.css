@@ -316,6 +316,9 @@ img {
 	float: left;
 	display: inline;
 	margin-bottom: 20px;
+	padding:10px;
+	background:rgba(255, 255, 255, 0.5);
+	border-radius:15px;
 }
 #pox {
 	width: 247px;
