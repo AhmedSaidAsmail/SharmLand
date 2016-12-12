@@ -34,10 +34,10 @@
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label>Category Name:</label>
-                                            <select class="form-control" name="main_category">
+                                            <select class="form-control" name="sort_id">
                                                 <option value="">Select  Category</option>
                                                 @foreach (App\MyModels\Admin\Sort::all() as $category)
-                                                <option value="{{$category->id}}" {!!($category->id==$Item->category)?'selected="selected"':''!!}>{{$category->name}} -- {{App\MyModels\Admin\Basicsort::find($category->main_category)->name}} --</option>
+                                                <option value="{{$category->id}}" {!!($category->id==$Item->sort_id)?'selected="selected"':''!!}>{{$category->name}} -- {{App\MyModels\Admin\Basicsort::find($category->main_category)->name}} --</option>
                                                 @endforeach
 
                                             </select>
