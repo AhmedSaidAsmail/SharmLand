@@ -1,0 +1,43 @@
+﻿body {
+	width: 1000px;
+	margin: 10px auto 120px auto;
+}
+table {
+	margin: 10px;
+}
+label {
+	background: #808080;
+	color: #FFF;
+	padding: 7px;
+	margin: 7px;
+}
+input {
+	margin: 7px;
+}
+div {
+	margin: 40px;
+}
+button {
+	margin: 5px;
+	width: 200px;
+	font-weight: bold;
+	padding: 3px;
+}
+.title {
+	background: #000000;
+	color: #FFF;
+	text-align: center;
+	padding: 5px;
+	border: 1px gray solid;
+	font-size: 22px;
+}
+.txt {
+	background: #666666;
+	padding: 6px;
+	color: #FFF;
+	font-weight: bold;
+}
+table img {
+	width: 150px;
+	height: auto;
+}

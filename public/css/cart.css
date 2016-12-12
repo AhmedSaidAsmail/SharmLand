@@ -1,0 +1,237 @@
+﻿.shoping_cart {
+	padding:5px;
+	color: #000;
+	font-size: 15px;
+	cursor: pointer;
+	border-radius: 5px;
+	position:absolute;
+	left:-90px;
+	top:-5px;
+	font-family: 'Muli', sans-serif;
+	font-size:18px;
+}
+.shoping_cart:hover {
+	background-color: #000;
+	color: #FFF;
+}
+
+/** **************  booking list ****************/
+#listing_form {
+	margin: 20px 0px 0px 0px;
+	background: #f5f3f0;
+	border:1px #666 solid;
+	width: 440px;
+	padding:10px 30px;
+	font-size: 11px;
+	border-radius:60px 60px 0px 60px;
+	
+}
+#listing_field {
+}
+#listing_form .label {
+	display: block;
+	font-weight: bold;
+	padding-left:40px;
+	padding-top: 10px;
+	padding-bottom:5px;
+	height:27px;
+	color:#000;
+	font-size:12px;
+	text-align:left;
+}
+.tow {
+	background: url('../images/label-2.png') no-repeat left top;
+	margin-bottom:-15px;
+	margin-top:-10px;
+}
+.one {
+	background: url('../images/label-1.png') no-repeat left top;
+	margin-bottom:-15px;
+}
+
+
+#listing_form form input[type=submit] {
+	cursor: pointer;
+	border: none;
+	width: 210px;
+	height: 36px;
+	background:url('../images/add_to_cart_button.png') no-repeat;
+	background-size:210px 36px;
+}
+.add-on {
+	position: absolute;
+	right: 20px;
+	top: 3px;
+}
+.add-on img {
+	height: 25px;
+}
+
+#stst {
+	background: url('../images/book-method1.png') no-repeat left top;
+	color: #b2b2b2;
+}
+#stst span {
+	background: url('../images/arroe-book.png') no-repeat right top;
+	padding-right: 85px;
+	display: block;
+}
+#sec {
+	background: url('../images/book-method2.png') no-repeat left top;
+}
+#sec span {
+	background: url('../images/arroe-book2.png') no-repeat right top;
+	padding-right: 85px;
+	display: block;
+}
+#rd {
+	background: url('../images/book-method3.png') no-repeat left top;
+	color: #b2b2b2;
+}
+#rd_active {
+	background: url('../images/book-method3.active.png') no-repeat left top;
+}
+
+#list_refrence {
+	width: 622px;
+	padding: 20px;
+	margin: 0px auto 20px auto;
+	background-color: #0085a7;
+	color: #FFF;
+	font-size: 15px;
+	border-radius: 5px;
+}
+#list_refrence:after {
+	display: block;
+	clear: both;
+	content: '';
+}
+#list_refrence .left {
+	float: left;
+	display: inline;
+}
+#list_refrence .right {
+	float: right;
+	display: inline;
+}
+#list_refrence h1 {
+	padding: 0px;
+	margin: 0px;
+}
+#list_refrence .left h1 {
+	color: #FFF;
+	padding-left: 40px;
+	padding-top: 3px;
+	margin-bottom: 20px;
+	background: url('../images/shopping_cart_ecommerce - Copy (2).png') no-repeat left top;
+}
+#list_refrence .right h1 {
+	position: relative;
+	margin-left: 10px;
+	margin-top: 10px;
+}
+#list_refrence .right h1 span {
+	font-size: 16px;
+	position: absolute;
+	left: -10px;
+}
+#trip_listing {
+}
+#trip_item {
+	border-top: 1px #999999 solid;
+	border-bottom: 1px #999999 solid;
+	margin-bottom: 20px;
+	padding: 0px;
+}
+#trip_item:after {
+	display: block;
+	clear: both;
+	content: '';
+}
+#trip_item .right {
+	float: right;
+	display: inline;
+	height: 110px;
+	background: #f1f1f1;
+	width: 200px;
+	padding:40px 0px 0px 0px ;
+	margin:0px;
+}
+#trip_item .right h1 {
+	font-size: 24px;
+	margin-left: 50px;
+	position: relative;
+	padding-left: 5px;
+}
+#trip_item .right h1 span {
+	font-size: 14px;
+	position: absolute;
+	left: -5px;
+	color: #e65f16;
+}
+#trip_item .left {
+	float: left;
+	display: inline;
+	width: 462px;
+	padding: 10px 0px;
+	margin-right:-10px;
+}
+#trip_item .left h1 {
+	margin: 0px 0px 10px 0px;
+	padding: 0px;
+	color: #0085a7;
+	font-size: 23px;
+}
+#trip_item .left:after {
+	display: block;
+	clear: both;
+	content: '';
+}
+#trip_item .left .img {
+	float: left;
+	display: inline;
+	width: 170px;
+	height: 109px;
+}
+#trip_item .left .img img {
+	width: 170px;
+	height: 109px;
+	border-radius: 7px;
+}
+#trip_item .left .text {
+	float: left;
+	display: inline;
+	margin-left: 10px;
+	width: 242px;
+	position: relative;
+}
+#trip_item .left .text span {
+	font-weight: bold;
+}
+#trip_item .left .text .remove-form {
+}
+#remove input[type=submit] {
+
+}
+#listing_next {
+}
+#listing_next:after {
+	display: block;
+	clear: both;
+	content: '';
+}
+#listing_next .left {
+	float: left;
+	display: inline;
+	font-size: 22px;
+	background: url('../images/Continue-shopping.png') no-repeat left center;
+	padding-left: 40px;
+	margin-top: 20px;
+}
+#listing_next .left a {
+	color: #00769b;
+}
+#listing_next .right {
+	float: right;
+	display: inline;
+}

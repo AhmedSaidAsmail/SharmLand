@@ -1,0 +1,124 @@
+﻿#flash_container {
+	margin-top: 20px;
+	margin-left: 20px;
+}
+#flash_container #flash {
+	width: 602px;
+	height: 350px;
+	position: relative;
+	z-index: 100;
+}
+#frame {
+	position: absolute;
+	z-index: 0;
+	width: 613px;
+	height: 308px;
+	top: -3px;
+	left: 0px;
+}
+/*
+	Slideshow
+*/
+#slides {
+	position: absolute;
+	top: 10px;
+	left: 14px;
+	z-index: 100;
+}
+.slides_container {
+	width: 580px;
+	overflow: hidden;
+	position: relative;
+	display: none;
+}
+.slides_container img {
+	display: block;
+	width: 580px;
+	height: 277px;
+}
+#slides .next, #slides .prev {
+	position: absolute;
+	top: 107px;
+	left: -39px;
+	width: 24px;
+	height: 43px;
+	display: block;
+	z-index: 101;
+}
+#slides .next {
+	left: 599px;
+}
+.pagination {
+	margin: 26px auto 0;
+	width: 200px;
+	background: url('../images/pagination.png') repeat left top;
+	padding:15px;
+	border-radius:20px;
+}
+.pagination li {
+	float: left;
+	margin: 0 1px;
+	list-style: none;
+}
+.pagination li a {
+	display: block;
+	width: 24px;
+	height: 0;
+	padding-top: 24px;
+	background-image: url(../img/pagination.png);
+	background-position: 0 0;
+	float: left;
+	overflow: hidden;
+}
+.pagination li.current a {
+	background-position: 0 -24px;
+}
+#flash2 {
+	width: 746px;
+	margin: 0 auto;
+}
+#flash2 #flash_container {
+	margin: 0px;
+	padding: 0px;
+}
+#flash2 #flash_container #flash {
+	width: 746px;
+	height: 180px;
+	margin: 0px;
+	padding: 0px;
+}
+#flash2 #flash_container #flash #slides {
+	margin: -10px 0 0 -15px;
+	padding: 0 0 0 0;
+	width: 746px;
+	height: 180px;
+}
+#flash2 #flash_container #flash #slides:after {
+	display: block;
+	content: '';
+	clear: both;
+}
+#flash2 #flash_container #flash #slides .slides_container {
+	float: left;
+	display: inline;
+width: 746px;
+	height: 180px;
+	
+}
+#flash2 #flash_container #flash #slides .slides_container img {
+	width: 746px;
+	height: 180px;
+}
+#flash2 #flash_container #flash #slides .next {
+	float: left;
+	display: inline;
+	width: 37px;
+	height: 300px;
+	margin: 0 0 0 0;
+	padding: 0 0 0 0;
+	left: 625px;
+	top: 0px;
+}
+#flash2 .pagination {
+	display:none;
+}

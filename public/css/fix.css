@@ -1,0 +1,73 @@
+﻿.blocks-title {
+	height: 22px;
+	position: absolute;
+	width: 206px;
+	top: 0px;
+	background: url('../images/blocks-title.png') repeat-x left top;
+}
+.blocks-title2 {
+	height: 22px;
+	position: absolute;
+	width: 206px;
+	top: 110px;
+	background: url('../images/blocks-title.png') repeat-x left top;
+	
+}
+
+#mainmenu ul li ul {
+	display: none;
+	position: absolute;
+	top: 19px;
+	left: 5px;
+	CLEAR: left;
+	background: #006699;
+	margin: 0;
+	padding: 0;
+}
+#mainmenu ul li ul li {
+	float: none;
+	display: block;
+	width: auto;
+	padding: 0 0 0 0;
+	margin: 0;
+	BORDER-BOTTOM: #FFF 1px solid;
+	BORDER-LEFT: #FFF 1px solid;
+	BORDER-TOP: #FFF 1px solid;
+	BORDER-RIGHT: #FFF 1px solid;
+	position: relative;
+}
+#label-cover .label {
+	position: relative;
+	background: url('../images/follow-us-label.png') no-repeat left top;
+	width: 285px;
+	height: 80px;
+	left: -10px;
+	top: 0px;
+}
+#mainmenu ul li {
+	z-index:20;
+}
+#mainmenu{
+	background:url('../images/menu.png') no-repeat  left top ;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

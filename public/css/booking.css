@@ -1,0 +1,124 @@
+﻿label {
+	color:#FF3300;
+	font-size:20px;
+	padding:0px 0px 0px 9px;
+}
+#insider3 {
+	padding: 0 0 0 0;
+	margin: 0px auto;
+	border-radius: 20px;
+	color: #FFF;
+	width: 622px;
+	padding: 20px;
+	background-color: #0085a7;
+	font-size:12px;
+}
+#insider3:after {
+	display:block;
+	clear:both;
+	content:'';
+}
+#exc-box3 {
+	margin:0px;
+}
+#exc-box3 #form {
+	padding:0px;
+	margin:0px;
+}
+#field {
+	width: 600px;
+	background: #002b49;
+	margin: 2px 0px;
+	padding: 5px 0px 5px 0px;
+	border-radius: 5px;
+}
+#field:after {
+	display: block;
+	clear: both;
+	content: '';
+}
+#field #right-cell {
+	float: left;
+	display: inline;
+	width: 160px;
+	margin-left: 20px;
+	margin-right:20px;
+}
+#field #left-cell {
+	float: left;
+	display: inline;
+	position: relative;
+}
+#field #left-cell input[type=text] {
+	border-radius: 5px;
+	background: #FFF;
+	border: 1px #FFF solid;
+	width: 300px;
+	padding: 5px;
+}
+#field2 {
+	width: 600px;
+	background: #888a8a;
+	margin: 2px 0px;
+	padding: 5px 0px 5px 0px;
+	border-radius: 5px;
+}
+#field2:after {
+	display: block;
+	clear: both;
+	content: '';
+}
+#field2 #right-cell {
+	float: left;
+	display: inline;
+	width: 130px;
+	margin-left: 20px;
+}
+#field2 #left-cell {
+	float: left;
+	display: inline;
+}
+#field2 #left-cell input[type=text] {
+	border-radius: 5px;
+	background: #FFF;
+	border: 1px #FFF solid;
+	width: 70px;
+	padding: 5px;
+}
+.add-on {
+	position: absolute;
+	right: 20px;
+	top: 3px;
+}
+.add-on img {
+	height: 25px;
+}
+#inputcode {
+	float: left;
+	display:inline;
+	margin-left:20px;
+}
+#inputcode input {
+	width:180px;
+}
+#code {
+	float: left;
+	display: inline;
+}
+#code img {
+	width: 100px;
+}
+#submit_cover {
+	position:relative;
+	height:86px;
+	margin-top:0px;
+}
+#submit_cover .submit {
+	background:url('../images/booknow.png');
+	width:369px;
+	height:86px;
+	border:0px;
+	position:absolute;
+	cursor:pointer;
+	right:-108px;
+}
