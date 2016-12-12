@@ -7,7 +7,7 @@ use App\MyModels\Admin\Price;
 class PricesController extends Controller {
     public function addPrice(Request $request, $id) {
         $this->validate($request, [
-            'item'      => 'required|integer',
+            'item_id'      => 'required|integer',
             'st_name'   => 'required',
             'st_price'  => 'required|integer',
             'sec_price' => 'integer'

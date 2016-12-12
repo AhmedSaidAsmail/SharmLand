@@ -57,7 +57,7 @@
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label>Category Name:</label>
-                                            <select class="form-control" name="category">
+                                            <select class="form-control" name="sort_id">
                                                 <option value="">Select Category</option>
                                                 @foreach (App\MyModels\Admin\Sort::all() as $category)
                                                 <option value="{{$category->id}}">{{$category->name}} -- {{App\MyModels\Admin\Basicsort::find($category->main_category)->name}} --</option>
@@ -155,7 +155,7 @@
 
                                 @foreach($Items as $Item)
                                 <tr>
-                                    <td>{{App\MyModels\Admin\Sort::find($Item->category)->name}}</td>
+                                    <td>{{$Item->sort->name}}</td>
                                     <td>{{$Item->name}}</td>
                                     <td>{{$Item->title}}</td>
                                     <td> @if($Item->status) <i class="fa fa-circle text-green"></i> @else <i class="fa fa-circle text-gray"></i> @endif </td>
@@ -184,15 +184,10 @@
                             </tfoot>
                         </table>
                     </div>
-                    <!-- /.box-body -->
                 </div>
-                <!-- /.box -->
             </div>
-            <!-- /.col -->
         </div>
-        <!-- /.row -->
     </section>
-    <!-- end content -->
 </div>
 @endsection
 @section('Extra_Js')

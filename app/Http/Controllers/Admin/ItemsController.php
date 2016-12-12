@@ -14,7 +14,7 @@ class ItemsController extends Controller {
     }
     public function store(Request $request) {
         $this->validate($request, ['name'        => 'required',
-            'category'    => 'required',
+            'sort_id'    => 'required',
             'title'       => 'required',
             'arrangement' => 'integer',
             'img'         => 'image']);

@@ -139,7 +139,7 @@
                     </div>
                     <form method="post" action="{{route('Item.addPrice',['id'=>$Item->id])}}">
                         <input type="hidden" name="_token" value="{{csrf_token()}}">
-                        <input type="hidden" name="item" value="{{$Item->id}}">
+                        <input type="hidden" name="item_id" value="{{$Item->id}}">
                         <div class="box-body">
                             <div class="row"><div class="col-md-12"><div class="form-group"><button class="btn btn-block btn-success">Add New Price</button></div></div></div>
                             <div class="row">
@@ -163,17 +163,14 @@
                                 <th></th>
                             </tr>
 
-                            @if(App\MyModels\Admin\Price::count()>0)
+                            @if(isset($Item->price->item_id))
                             <tr>
-                                @foreach(App\MyModels\Admin\Price::all() as $price)
-
-                                <td>{{$price->st_name}}</td>
-                                <td>{{$price->st_price}}</td>
-                                <td>{{$price->sec_name}}</td>
-                                <td>{{$price->sec_price}}</td>
+                                <td>{{$Item->price->st_name}}</td>
+                                <td>{{$Item->price->st_price}}</td>
+                                <td>{{$Item->price->sec_name}}</td>
+                                <td>{{$Item->price->sec_price}}</td>
                                 <td><a class="btn btn-primary btn-success">Edit</a></td>
                                 <td><a class="btn btn-primary btn-warning">Delete</a></td>
-                                @endforeach
                             </tr>
                             @endif
 
