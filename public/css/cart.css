@@ -14,7 +14,6 @@
 	background-color: #000;
 	color: #FFF;
 }
-
 /** **************  booking list ****************/
 #listing_form {
 	margin: 20px 0px 0px 0px;
@@ -24,7 +23,6 @@
 	padding:10px 30px;
 	font-size: 11px;
 	border-radius:60px 60px 0px 60px;
-	
 }
 #listing_field {
 }
@@ -48,8 +46,6 @@
 	background: url('../images/label-1.png') no-repeat left top;
 	margin-bottom:-15px;
 }
-
-
 #listing_form form input[type=submit] {
 	cursor: pointer;
 	border: none;
@@ -66,7 +62,6 @@
 .add-on img {
 	height: 25px;
 }
-
 #stst {
 	background: url('../images/book-method1.png') no-repeat left top;
 	color: #b2b2b2;
@@ -91,7 +86,6 @@
 #rd_active {
 	background: url('../images/book-method3.active.png') no-repeat left top;
 }
-
 #list_refrence {
 	width: 622px;
 	padding: 20px;
@@ -154,7 +148,7 @@
 	height: 110px;
 	background: #f1f1f1;
 	width: 200px;
-	padding:40px 0px 0px 0px ;
+	padding:40px 0px 0px 0px;
 	margin:0px;
 }
 #trip_item .right h1 {
@@ -211,7 +205,6 @@
 #trip_item .left .text .remove-form {
 }
 #remove input[type=submit] {
-
 }
 #listing_next {
 }

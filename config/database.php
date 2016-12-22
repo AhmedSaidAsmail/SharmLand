@@ -11,7 +11,7 @@ return [
       |
      */
 
-    'fetch' => PDO::FETCH_OBJ,
+    'fetch'       => PDO::FETCH_OBJ,
     /*
       |--------------------------------------------------------------------------
       | Default Database Connection Name
@@ -22,7 +22,7 @@ return [
       | you may use many connections at once using the Database library.
       |
      */
-    'default' => env('DB_CONNECTION', 'mysql'),
+    'default'     => env('DB_CONNECTION', 'mysql'),
     /*
       |--------------------------------------------------------------------------
       | Database Connections
@@ -44,20 +44,20 @@ return [
             'database' => env('DB_DATABASE', database_path('database.sqlite')),
             'prefix'   => '',
         ],
-        'mysql' => [
+        'mysql'  => [
             'driver'    => 'mysql',
-            'host'      => 'localhost',
+            'host'      => env('DB_HOST', 'localhost'),
             'port'      => env('DB_PORT', '3306'),
-            'database'  => 'excursions',
-            'username'  => 'root',
-            'password'  => null,
+            'database'  => env('DB_DATABASE', 'forge'),
+            'username'  => env('DB_USERNAME', 'forge'),
+            'password'  => env('DB_PASSWORD', ''),
             'charset'   => 'utf8',
             'collation' => 'utf8_unicode_ci',
             'prefix'    => '',
             'strict'    => true,
             'engine'    => null,
         ],
-        'pgsql' => [
+        'pgsql'  => [
             'driver'   => 'pgsql',
             'host'     => env('DB_HOST', 'localhost'),
             'port'     => env('DB_PORT', '5432'),
@@ -80,7 +80,7 @@ return [
       | the migrations on disk haven't actually been run in the database.
       |
      */
-    'migrations' => 'migrations',
+    'migrations'  => 'migrations',
     /*
       |--------------------------------------------------------------------------
       | Redis Databases
@@ -91,7 +91,7 @@ return [
       | such as APC or Memcached. Laravel makes it easy to dig right in.
       |
      */
-    'redis' => [
+    'redis'       => [
         'cluster' => false,
         'default' => [
             'host'     => env('REDIS_HOST', 'localhost'),
