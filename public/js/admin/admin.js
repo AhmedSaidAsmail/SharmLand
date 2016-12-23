@@ -17,4 +17,15 @@ $(document).ready(function() {
             autoDiv.show();
         }
     });
+    $('a.deleteItem').click(function() {
+        var name = $(this).attr("title");
+        var form = $(this).parent('form');
+        if (!confirm('You want to delete ' + name + " !!"))
+        {
+            return false;
+
+        }
+        form.submit();
+
+    });
 });

@@ -20,8 +20,8 @@
                 <nav class="navbar navbar-static-top"> <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </a>
                     <div class="navbar-custom-menu">
                         <ul class="nav navbar-nav">
-                            <li class="dropdown user user-menu"> <a href="#" class="dropdown-toggle" data-toggle="dropdown"> 
-                                    <img src="{{asset('images/admin/administrator.png')}}" class="user-image" alt="User Image"> 
+                            <li class="dropdown user user-menu"> <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                    <img src="{{asset('images/admin/administrator.png')}}" class="user-image" alt="User Image">
                                     <span class="hidden-xs">{{Auth::user()->email}} </span> </a>
                                 <ul class="dropdown-menu">
                                     <li class="user-header"> <img src="{{asset('images/admin/administrator.png')}}" class="img-circle" alt="User Image">
@@ -62,19 +62,19 @@
                         <li class="treeview"> <a href="{{route('welcome')}}"> <i class="fa fa-dashboard"></i> <span>Dashboard</span>  </a>
 
                         </li>
-                        <li class="treeview{{(isset($activeMaincategory))?' active':''}}"> <a href="#"> <i class="fa fa-files-o"></i> <span>Main Category</span> <span class="pull-right-container"> 
+                        <li class="treeview{{(isset($activeMaincategory))?' active':''}}"> <a href="#"> <i class="fa fa-files-o"></i> <span>Main Category</span> <span class="pull-right-container">
                                     <span class="label label-primary pull-right">{{App\MyModels\Admin\Basicsort::count()}}</span> </span> </a>
                             <ul class="treeview-menu">
-                                <li><a href="{{route('showMainCategory')}}"><i class="fa fa-circle-o"></i> Main Category Manager</a></li>
+                                <li><a href="{{route('MainCategory.index')}}"><i class="fa fa-circle-o"></i> Main Category Manager</a></li>
                             </ul>
                         </li>
-                        <li class="treeview{{(isset($activeCategory))?' active':''}}"> <a href=""> <i class="fa fa-th"></i> <span>Categories</span> 
-                                <span class="pull-right-container"> <small class="label pull-right bg-green">{{App\MyModels\Admin\Sort::count()}}</small> </span> </a> 
+                        <li class="treeview{{(isset($activeCategory))?' active':''}}"> <a href=""> <i class="fa fa-th"></i> <span>Categories</span>
+                                <span class="pull-right-container"> <small class="label pull-right bg-green">{{App\MyModels\Admin\Sort::count()}}</small> </span> </a>
                             <ul class="treeview-menu">
                                 <li><a href="{{route('category')}}"><i class="fa fa-circle-o"></i> Categories Manager</a></li>
                             </ul>
                         </li>
-                        <li class="treeview{{(isset($activeItems))?' active':''}}"> <a href="#"> <i class="fa fa-pie-chart"></i> <span>Items</span> 
+                        <li class="treeview{{(isset($activeItems))?' active':''}}"> <a href="#"> <i class="fa fa-pie-chart"></i> <span>Items</span>
                                 <span class="pull-right-container"> <i class="fa fa-angle-left pull-right"></i> </span> </a>
                             <ul class="treeview-menu">
                                 <li><a href="{{route('Items')}}"><i class="fa fa-circle-o"></i> Items Manager</a></li>

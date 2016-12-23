@@ -14,11 +14,8 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
     Route::get('', function() {
         return view('Admin.Welcome');
     })->name('welcome');
-    Route::get('/MainCategory', ['uses' => 'Admin\BasicsortController@show'])->name("showMainCategory");
-    Route::post('/MainCategory/AddNew', ['before' => 'csrf', 'uses' => 'Admin\BasicsortController@store'])->name('addNewMainCategory');
-    Route::get('/MainCatagory/Update/{id}', ['uses' => 'Admin\BasicsortController@update'])->name('updateMainCategory');
-    Route::put('/MainCatagory/Edit/{id}', ['uses' => 'Admin\BasicsortController@edit'])->name('editMainCategory');
-    Route::get('/MainCategory/Delete/{id}', ['uses' => 'Admin\BasicsortController@delete'])->name('deleteMainCategory');
+    //Main Category
+    Route::resource('/MainCategory', 'Admin\MainCategoriesController');
     // Category
     Route::get('/Category', ['uses' => 'Admin\SortController@show'])->name('category');
     Route::post('/Category/AddNew', ['uses' => 'Admin\SortController@store'])->name('addNewCategory');

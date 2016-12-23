@@ -25,11 +25,11 @@
                         <div class="form-group">
                             <button type="submit" class="form-control btn-primary" id="addNew">Add New Catagory</button>
                         </div>
-                        @if(Session::has('addStatus'))                        
+                        @if(Session::has('addMessage'))
                         <div class="alert alert-danger alert-dismissible">
                             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
                             <h4><i class="icon fa fa-ban"></i> Alert!</h4>
-                            {{Session('addStatus')}}
+                            {{Session('addMessage')}}
                         </div>
                         @elseif(count($errors)>0)
                         <div class="alert alert-danger alert-dismissible">
@@ -50,7 +50,7 @@
                         @endif
                     </div>
                     <div id="basicToggle">
-                        <form method="post" action="{{route('addNewMainCategory')}}" enctype="multipart/form-data">
+                        <form method="post" action="{{route('MainCategory.store')}}" enctype="multipart/form-data">
                             <input type="hidden" name="_token" value="{{ csrf_token() }}">
                             <div class="box-body">
                                 <div class="row">
@@ -149,10 +149,16 @@
                                     <td><div class="btn-group">
                                             <button type="button" class="btn btn-default">Action</button>
                                             <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"> <span class="caret"></span> <span class="sr-only">Toggle Dropdown</span> </button>
-                                            <ul class="dropdown-menu" role="menu">
-                                                <li><a href="{{route('updateMainCategory',['id'=>$Bsort->id])}}">Change</a></li>
-                                                <li><a class="deleteBasic" href="{{route('deleteMainCategory',['id'=>$Bsort->id])}}">Delete</a></li>
-                                            </ul>
+                                            <div class="dropdown-menu list-group" >
+                                                <a href="{{route('MainCategory.edit',['id'=>$Bsort->id])}}" class="list-group-item">Change</a></li>
+                                                <form action="{{route('MainCategory.destroy',['id'=>$Bsort->id])}}" method="post">
+                                                    <input type="hidden" name="_token" value="{{csrf_token()}}">
+                                                    <input type="hidden" name="_method" value="DELETE">
+                                                    <a href="#" class="deleteItem list-group-item" title="{{$Bsort->name}}">Delete</a>
+                                                </form>
+
+
+                                            </div>
                                         </div></td>
                                 </tr>
                                 @endforeach
@@ -185,7 +191,7 @@
 <script src="{{asset('adminlte/plugins/datatables/jquery.dataTables.min.js')}}"></script>
 <script src="{{asset('adminlte/plugins/datatables/dataTables.bootstrap.min.js')}}"></script>
 <script>
-$(function () {
+$(function() {
     $("#example1").DataTable();
     $('#example2').DataTable({
         "paging": true,

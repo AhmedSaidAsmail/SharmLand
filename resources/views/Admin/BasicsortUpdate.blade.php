@@ -26,7 +26,7 @@
                         </div>
                     </div>
 
-                    <form method="post" action="{{route('editMainCategory',['id'=>$basicSort->id])}}" enctype="multipart/form-data">
+                    <form method="post" action="{{route('MainCategory.update',['id'=>$basicSort->id])}}" enctype="multipart/form-data">
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
                         <input type="hidden" name="_method" value="PUT">
                         <div class="box-body">
