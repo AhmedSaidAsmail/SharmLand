@@ -156,8 +156,6 @@
                                                     <input type="hidden" name="_method" value="DELETE">
                                                     <a href="#" class="deleteItem list-group-item" title="{{$Bsort->name}}">Delete</a>
                                                 </form>
-
-
                                             </div>
                                         </div></td>
                                 </tr>
