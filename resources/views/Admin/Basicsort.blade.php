@@ -150,7 +150,7 @@
                                             <button type="button" class="btn btn-default">Action</button>
                                             <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"> <span class="caret"></span> <span class="sr-only">Toggle Dropdown</span> </button>
                                             <div class="dropdown-menu list-group" >
-                                                <a href="{{route('MainCategory.edit',['id'=>$Bsort->id])}}" class="list-group-item">Change</a></li>
+                                                <a href="{{route('MainCategory.edit',['id'=>$Bsort->id])}}" class="list-group-item">Change</a>
                                                 <form action="{{route('MainCategory.destroy',['id'=>$Bsort->id])}}" method="post">
                                                     <input type="hidden" name="_token" value="{{csrf_token()}}">
                                                     <input type="hidden" name="_method" value="DELETE">

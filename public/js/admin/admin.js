@@ -20,12 +20,40 @@ $(document).ready(function() {
     $('a.deleteItem').click(function() {
         var name = $(this).attr("title");
         var form = $(this).parent('form');
-        if (!confirm('You want to delete ' + name + " !!"))
-        {
+        if (!confirm('You want to delete ' + name + " !!")) {
             return false;
-
         }
         form.submit();
-
+    });
+    $('select#detailsNavigatore').change(function() {
+        var form = $(this).closest('form');
+        form.submit();
+    });
+    $('#addRow').click(function() {
+        var textGroup = $(this).closest(".box-body").find("#text-group");
+        var text = createRow();
+        textGroup.append(text);
+        $("a#deleteRow").click(function() {
+            var row = $(this).closest('.row');
+            row.empty();
+        });
     });
 });
+
+function createRow() {
+    var row = document.createElement('div');
+    row.setAttribute('class', 'row');
+    row.innerHTML = '<div class="col-md-11"> <div class="form-group"><input class="form-control" name="text[]" value="" placeholder="Text" required></div></div>';
+    var trashDiv = document.createElement('div');
+    trashDiv.setAttribute('class', 'col-md-1');
+    var formGroup = document.createElement('div');
+    formGroup.setAttribute('class', 'form-group');
+    var deleteRowIcon = document.createElement('a');
+    deleteRowIcon.setAttribute('id', 'deleteRow');
+    deleteRowIcon.setAttribute('class', 'btn btn-default');
+    deleteRowIcon.innerHTML = '<i class="fa fa-fw fa-trash-o"></i>';
+    formGroup.appendChild(deleteRowIcon);
+    trashDiv.appendChild(formGroup);
+    row.appendChild(trashDiv);
+    return row;
+}

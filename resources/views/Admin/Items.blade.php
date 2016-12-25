@@ -25,7 +25,7 @@
                         <div class="form-group">
                             <button type="submit" class="form-control btn-primary" id="addNew">Add New Items</button>
                         </div>
-                        @if(Session::has('addStatus'))                        
+                        @if(Session::has('addStatus'))
                         <div class="alert alert-danger alert-dismissible">
                             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
                             <h4><i class="icon fa fa-ban"></i> Alert!</h4>
@@ -50,7 +50,7 @@
                         @endif
                     </div>
                     <div id="basicToggle">
-                        <form method="post" action="{{route('addNewItem')}}" enctype="multipart/form-data">
+                        <form method="post" action="{{route('Items.store')}}" enctype="multipart/form-data">
                             <input type="hidden" name="_token" value="{{ csrf_token() }}">
                             <div class="box-body">
                                 <div class="row">
@@ -60,7 +60,7 @@
                                             <select class="form-control" name="sort_id">
                                                 <option value="">Select Category</option>
                                                 @foreach (App\MyModels\Admin\Sort::all() as $category)
-                                                <option value="{{$category->id}}">{{$category->name}} -- {{App\MyModels\Admin\Basicsort::find($category->main_category)->name}} --</option>
+                                                <option value="{{$category->id}}">{{$category->name}} -- Main Category: {{$category->basicsort->name}}</option>
                                                 @endforeach
 
                                             </select>
@@ -164,8 +164,8 @@
                                             <button type="button" class="btn btn-default">Action</button>
                                             <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"> <span class="caret"></span> <span class="sr-only">Toggle Dropdown</span> </button>
                                             <ul class="dropdown-menu" role="menu">
-                                                <li><a href="{{route('updateItem',['id'=>$Item->id])}}">Change</a></li>
-                                                <li><a class="deleteBasic" href="{{route('deleteItem',['id'=>$Item->id])}}">Delete</a></li>
+                                                <li><a href="{{route('Items.edit',['id'=>$Item->id])}}">Change</a></li>
+                                                <li><a class="deleteBasic" href="{{route('Items.destroy',['id'=>$Item->id])}}">Delete</a></li>
                                             </ul>
                                         </div></td>
                                 </tr>
@@ -195,7 +195,7 @@
 <script src="{{asset('adminlte/plugins/datatables/jquery.dataTables.min.js')}}"></script>
 <script src="{{asset('adminlte/plugins/datatables/dataTables.bootstrap.min.js')}}"></script>
 <script>
-$(function () {
+$(function() {
     $("#example1").DataTable();
     $('#example2').DataTable({
         "paging": true,

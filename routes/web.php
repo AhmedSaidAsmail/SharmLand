@@ -17,18 +17,11 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
     //Main Category
     Route::resource('/MainCategory', 'Admin\MainCategoriesController');
     // Category
-    Route::get('/Category', ['uses' => 'Admin\SortController@show'])->name('category');
-    Route::post('/Category/AddNew', ['uses' => 'Admin\SortController@store'])->name('addNewCategory');
-    Route::get('/Catagory/Update/{id}', ['uses' => 'Admin\SortController@update'])->name('updateCategory');
-    Route::put('/Catagory/Edit/{id}', ['uses' => 'Admin\SortController@edit'])->name('editCategory');
-    Route::get('/Category/Delete/{id}', ['uses' => 'Admin\SortController@delete'])->name('deleteCategory');
+    Route::resource('Category', 'Admin\CategoriesController');
     //items
-    Route::get('/Items', ['uses' => 'Admin\ItemsController@show'])->name('Items');
-    Route::post('/Items/AddNew', ['uses' => 'Admin\ItemsController@store'])->name('addNewItem');
-    Route::get('/Items/Update/{id}', ['uses' => 'Admin\ItemsController@update'])->name('updateItem');
-    Route::put('/Items/Edit/{id}', ['uses' => 'Admin\ItemsController@edit'])->name('editItems');
-    Route::get('/Items/Delete/{id}', ['uses' => 'Admin\ItemsController@delete'])->name('deleteItem');
+    Route::resource('/Items', 'Admin\ItemsController');
     // prices
+    Route::resource('/Items/{item}/Information', 'Admin\ItemDetailsController');
     Route::post('/Item/{id}/Price/addNew', ['uses' => 'Admin\PricesController@addPrice'])->name('Item.addPrice');
 });
 

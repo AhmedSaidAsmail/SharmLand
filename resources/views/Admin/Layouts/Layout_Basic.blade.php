@@ -71,13 +71,13 @@
                         <li class="treeview{{(isset($activeCategory))?' active':''}}"> <a href=""> <i class="fa fa-th"></i> <span>Categories</span>
                                 <span class="pull-right-container"> <small class="label pull-right bg-green">{{App\MyModels\Admin\Sort::count()}}</small> </span> </a>
                             <ul class="treeview-menu">
-                                <li><a href="{{route('category')}}"><i class="fa fa-circle-o"></i> Categories Manager</a></li>
+                                <li><a href="{{route('Category.index')}}"><i class="fa fa-circle-o"></i> Categories Manager</a></li>
                             </ul>
                         </li>
                         <li class="treeview{{(isset($activeItems))?' active':''}}"> <a href="#"> <i class="fa fa-pie-chart"></i> <span>Items</span>
                                 <span class="pull-right-container"> <i class="fa fa-angle-left pull-right"></i> </span> </a>
                             <ul class="treeview-menu">
-                                <li><a href="{{route('Items')}}"><i class="fa fa-circle-o"></i> Items Manager</a></li>
+                                <li><a href="{{route('Items.index')}}"><i class="fa fa-circle-o"></i> Items Manager</a></li>
                             </ul>
                         </li>
                         <li class="treeview"> <a href="#"> <i class="fa fa-laptop"></i> <span>UI Elements</span> <span class="pull-right-container"> <i class="fa fa-angle-left pull-right"></i> </span> </a>

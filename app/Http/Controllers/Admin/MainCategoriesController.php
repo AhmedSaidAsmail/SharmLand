@@ -4,12 +4,14 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\MyModels\Admin\Basicsort;
+use App\Http\Controllers\Admin\CategoriesController;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Session;
 use App\Http\Controllers\Admin\UploadImageController;
 
 class MainCategoriesController extends Controller {
 
+    protected $_instance;
     /**
      * Display a listing of the resource.
      *
@@ -102,6 +104,12 @@ class MainCategoriesController extends Controller {
      */
     public function destroy($id) {
         $MainCategory = Basicsort::find($id);
+        foreach ($MainCategory->sorts as $category) {
+            if (is_null($this->_instance)) {
+                $this->_instance = new CategoriesController();
+            }
+            $this->_instance->destroy($category->id);
+        }
         $MainCategory->delete();
         Session::flash('deleteStatus', "Main Category No: {$id} is Deleted !!");
         return redirect(route('MainCategory.index'));

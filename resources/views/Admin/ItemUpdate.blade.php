@@ -7,7 +7,7 @@
 <div class="content-wrapper">
     <!-- Directory&Header -->
     <section class="content-header">
-        <h1>Categories <small>Categories Update</small> </h1>
+        <h1>Items <small>Items Update</small> </h1>
         <ol class="breadcrumb">
             <li><a href="#"><i class="fa fa-dashboard"></i> C-Panel</a></li>
             <li><a href="#">Update Items : {{$Item->name}}</a></li>
@@ -26,7 +26,7 @@
                         </div>
                     </div>
                     <div id="basicToggle">
-                        <form method="post" action="{{route('editCategory',['id'=>$Item->id])}}" enctype="multipart/form-data">
+                        <form method="post" action="{{route('Items.update',['id'=>$Item->id])}}" enctype="multipart/form-data">
                             <input type="hidden" name="_token" value="{{ csrf_token() }}">
                             <input type="hidden" name="_method" value="PUT">
                             <div class="box-body">
@@ -37,7 +37,7 @@
                                             <select class="form-control" name="sort_id">
                                                 <option value="">Select  Category</option>
                                                 @foreach (App\MyModels\Admin\Sort::all() as $category)
-                                                <option value="{{$category->id}}" {!!($category->id==$Item->sort_id)?'selected="selected"':''!!}>{{$category->name}} -- {{App\MyModels\Admin\Basicsort::find($category->main_category)->name}} --</option>
+                                                <option value="{{$category->id}}" {!!($category->id==$Item->sort_id)?'selected="selected"':''!!}>{{$category->name}} -- {{$category->basicsort->name}}</option>
                                                 @endforeach
 
                                             </select>
@@ -45,13 +45,13 @@
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <label>Category Name:</label>
+                                            <label>Item Name:</label>
                                             <input class="form-control" value="{{$Item->name}}" name="name" placeholder="Main category Name" required>
                                         </div>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <label>Category Title:</label>
+                                            <label>Item Title:</label>
                                             <input class="form-control" value="{{$Item->title}}" name="title" placeholder="Main category Title" required>
                                         </div>
                                     </div>
@@ -115,11 +115,25 @@
                         </form>
                     </div>
                 </div>
-
-
-
-
-
+                <div>
+                    <form action="{{route('Information.create',['item'=>$Item->id])}}" method="get">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label>Add New Details To This Items</label>
+                                    <select name="detail" class="form-control" id="detailsNavigatore">
+                                        <option value="">Select Details to Add</option>
+                                        <option value="inclusion">Inclusions</option>
+                                        <option value="exclusion">Exclusions</option>
+                                        <option value="additional">Additional Information </option>
+                                        <option value="dresse">Dresses</option>
+                                        <option value="note">Notes</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
                 <div class="box">
                     <div class="box-header">
                         <h3 class="box-title">Prices Table</h3>
@@ -137,6 +151,7 @@
                         @endif
 
                     </div>
+                    @if(count($Item->price)==0)
                     <form method="post" action="{{route('Item.addPrice',['id'=>$Item->id])}}">
                         <input type="hidden" name="_token" value="{{csrf_token()}}">
                         <input type="hidden" name="item_id" value="{{$Item->id}}">
@@ -151,7 +166,9 @@
                             </div>
                         </div>
                     </form>
-                    <!-- /.box-header -->
+                    @endif
+
+                    <!-- /.box-Prices -->
                     <div class="box-body table-responsive no-padding">
                         <table class="table table-hover">
                             <tr>
@@ -169,8 +186,8 @@
                                 <td>{{$Item->price->st_price}}</td>
                                 <td>{{$Item->price->sec_name}}</td>
                                 <td>{{$Item->price->sec_price}}</td>
-                                <td><a class="btn btn-primary btn-success">Edit</a></td>
-                                <td><a class="btn btn-primary btn-warning">Delete</a></td>
+                                <td><a class="btn btn-xs btn-warning">Edit</a></td>
+                                <td><a class="btn btn-xs btn-danger">Delete</a></td>
                             </tr>
                             @endif
 
@@ -178,8 +195,67 @@
 
                         </table>
                     </div>
-                    <!-- /.box-body -->
+                    <!-- /.box-Prices -->
                 </div>
+
+                <!-- Inclusions -->
+                <div class="box">
+                    <div class="box-header">
+                        <h3 class="box-title">Inclusions Table</h3>
+                    </div>
+                    <div class="box-body no-padding">
+                        <table class="table table-striped">
+                            <tr>
+                                <th style="width: 10px">#</th>
+                                <th>Inclusions Text</th>
+                                <th>Edit</th>
+                                <th style="width: 40px">Delete</th>
+                            </tr>
+                            <?php $oredr = 1 ?>
+                            @foreach($Item->inclusion as $inclusion)
+                            <tr>
+                                <td>{{$oredr}}</td>
+                                <td>{{$inclusion->txt}}</td>
+                                <td><a href="" class="btn btn-xs btn-warning">Edit</a></td>
+                                <td><a class="btn btn-xs btn-danger" href="">Delete</a></td>
+                            </tr>
+                            <?php $oredr++ ?>
+                            @endforeach
+                        </table>
+                    </div>
+                </div>
+                <!-- end Inclusions-->
+
+                <!-- Inclusions -->
+                <div class="box">
+                    <div class="box-header">
+                        <h3 class="box-title">Exclusions Table</h3>
+                    </div>
+                    <div class="box-body no-padding">
+                        <table class="table table-striped">
+                            <tr>
+                                <th style="width: 10px">#</th>
+                                <th>Exclusions Text</th>
+                                <th>Edit</th>
+                                <th style="width: 40px">Delete</th>
+                            </tr>
+                            <?php $oredr = 1 ?>
+                            @foreach($Item->exclusion as $exclusion)
+                            <tr>
+                                <td>{{$oredr}}</td>
+                                <td>{{$exclusion->txt}}</td>
+                                <td><a href="" class="btn btn-xs btn-warning">Edit</a></td>
+                                <td><a class="btn btn-xs btn-danger" href="">Delete</a></td>
+                            </tr>
+                            <?php $oredr++ ?>
+                            @endforeach
+                        </table>
+                    </div>
+                </div>
+                <!-- end Inclusions-->
+
+
+
 
             </div>
             <!-- /.col -->

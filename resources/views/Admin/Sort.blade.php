@@ -25,7 +25,7 @@
                         <div class="form-group">
                             <button type="submit" class="form-control btn-primary" id="addNew">Add New Catagory</button>
                         </div>
-                        @if(Session::has('addStatus'))                        
+                        @if(Session::has('addStatus'))
                         <div class="alert alert-danger alert-dismissible">
                             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
                             <h4><i class="icon fa fa-ban"></i> Alert!</h4>
@@ -50,14 +50,14 @@
                         @endif
                     </div>
                     <div id="basicToggle">
-                        <form method="post" action="{{route('addNewCategory')}}" enctype="multipart/form-data">
+                        <form method="post" action="{{route('Category.store')}}" enctype="multipart/form-data">
                             <input type="hidden" name="_token" value="{{ csrf_token() }}">
                             <div class="box-body">
                                 <div class="row">
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label>Main Category Name:</label>
-                                            <select class="form-control" name="main_category">
+                                            <select class="form-control" name="basicsort_id">
                                                 <option value="">Select Main Category</option>
                                                 @foreach (App\MyModels\Admin\Basicsort::all() as $MainCategory)
                                                 <option value="{{$MainCategory->id}}">{{$MainCategory->name}}</option>
@@ -155,7 +155,7 @@
 
                                 @foreach($Categories as $Category)
                                 <tr>
-                                    <td>{{App\MyModels\Admin\Basicsort::find($Category->main_category)->name}}</td>
+                                    <td>{{$Category->basicsort->name}}</td>
                                     <td>{{$Category->name}}</td>
                                     <td>{{$Category->title}}</td>
                                     <td> @if($Category->status) <i class="fa fa-circle text-green"></i> @else <i class="fa fa-circle text-gray"></i> @endif </td>
@@ -163,10 +163,15 @@
                                     <td><div class="btn-group">
                                             <button type="button" class="btn btn-default">Action</button>
                                             <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"> <span class="caret"></span> <span class="sr-only">Toggle Dropdown</span> </button>
-                                            <ul class="dropdown-menu" role="menu">
-                                                <li><a href="{{route('updateCategory',['id'=>$Category->id])}}">Change</a></li>
-                                                <li><a class="deleteBasic" href="{{route('deleteCategory',['id'=>$Category->id])}}">Delete</a></li>
-                                            </ul>
+                                            <div class="dropdown-menu list-group" >
+                                                <a class="list-group-item" href="{{route('Category.edit',['id'=>$Category->id])}}">Change</a>
+                                                <form action="{{route('Category.destroy',['id'=>$Category->id])}}" method="post">
+                                                    <input type="hidden" name="_token" value="{{csrf_token()}}">
+                                                    <input type="hidden" name="_method" value="DELETE">
+                                                    <a href="#" class="deleteItem list-group-item" title="{{$Category->name}}">Delete</a>
+                                                </form>
+                                            </div>
+
                                         </div></td>
                                 </tr>
                                 @endforeach
@@ -200,7 +205,7 @@
 <script src="{{asset('adminlte/plugins/datatables/jquery.dataTables.min.js')}}"></script>
 <script src="{{asset('adminlte/plugins/datatables/dataTables.bootstrap.min.js')}}"></script>
 <script>
-$(function () {
+$(function() {
     $("#example1").DataTable();
     $('#example2').DataTable({
         "paging": true,
