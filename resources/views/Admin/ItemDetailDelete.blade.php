@@ -18,34 +18,20 @@
     <section class="content">
 
         <div class="box">
-            <div class="box-header with-border"><h4><a href="#">Add New</a> {{ucfirst($modelName)}}</h4></div>
-            <form method="post" action="{{route('Information.store',['itemID'=>$Item->id])}}">
+            <div class="box-header with-border">
+                <h4><a href="">Delete Details  </a>{{$modelName }} no:{{$rowID}}</h4></div>
+            <form method="post" action="{{route('Information.destroy',['item'=>$Item->id,'rowID'=>$rowID])}}">
+                <input type="hidden" name="_method" value="DELETE">
                 <input type="hidden" name="_token" value="{{csrf_token()}}">
                 <input type="hidden" name="modelName" value="{{$modelName}}">
                 <div class="box-body">
-                    <div id="text-group">
-                        <div class="row">
-                            <div class="col-md-11">
-                                <div class="form-group">
-                                    <input class="form-control" name="text[]" value="" placeholder="Text" required>
-                                </div>
-                            </div>
-                            <div class="col-md-1">
-                                <div class="form-group">
-                                    <a class=" btn btn-default" id="deleteRow"><i class="fa fa-fw fa-trash-o"></i></a>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
                     <div class="row">
                         <div class="col-sm-12">
                             <div class="form-group">
-                                <a class="btn btn-success" id="addRow"><i class="fa fa-fw fa-plus"></i>Add Text</a>
-                                <input class="btn btn-primary" type="submit" value="Insert">
+                                <button class="btn btn-danger"><i class="fa fa-trash"></i> Delete </button>
+                                <a href="{{route('Items.edit',['Items'=>$Item->id])}}" class="btn btn-warning"><i class="fa fa-ban"></i> Cancel</a>
                             </div>
                         </div>
-
                     </div>
                 </div>
             </form>

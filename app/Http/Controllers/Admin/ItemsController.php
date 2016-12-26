@@ -36,7 +36,11 @@ class ItemsController extends Controller {
     }
     public function edit($id) {
         $item = Item::find($id);
-        return view('Admin.ItemUpdate', ['Item' => $item, 'activeItems' => 1]);
+        if (!is_null($item)) {
+            return view('Admin.ItemUpdate', ['Item' => $item, 'activeItems' => 1]);
+        }
+        Session::flash('fetchData', 'There is no such data');
+        return redirect()->route('Items.index');
     }
     public function update($id, Request $request) {
         $this->validate($request, ['name'        => 'required',

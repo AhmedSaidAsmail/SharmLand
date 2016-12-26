@@ -18,8 +18,9 @@
     <section class="content">
 
         <div class="box">
-            <div class="box-header with-border"><h4><a href="#">Add New</a> {{ucfirst($modelName)}}</h4></div>
-            <form method="post" action="{{route('Information.store',['itemID'=>$Item->id])}}">
+            <div class="box-header"><h4>Update {{ucfirst($modelName )}} No:{{$Data->id}}</h4></div>
+            <form method="post" action="{{route('Information.update',['itemID'=>$Item->id,'rowID'=>$Data->id])}}">
+                <input type="hidden" name="_method" value="PUT">
                 <input type="hidden" name="_token" value="{{csrf_token()}}">
                 <input type="hidden" name="modelName" value="{{$modelName}}">
                 <div class="box-body">
@@ -27,25 +28,18 @@
                         <div class="row">
                             <div class="col-md-11">
                                 <div class="form-group">
-                                    <input class="form-control" name="text[]" value="" placeholder="Text" required>
+                                    <input class="form-control" name="text" value="{{$Data->txt}}" placeholder="Text" required>
                                 </div>
                             </div>
-                            <div class="col-md-1">
-                                <div class="form-group">
-                                    <a class=" btn btn-default" id="deleteRow"><i class="fa fa-fw fa-trash-o"></i></a>
-                                </div>
 
-                            </div>
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-sm-12">
+                        <div class="col-sm-2">
                             <div class="form-group">
-                                <a class="btn btn-success" id="addRow"><i class="fa fa-fw fa-plus"></i>Add Text</a>
-                                <input class="btn btn-primary" type="submit" value="Insert">
+                                <input class="form-control btn btn-primary" type="submit" value="Update">
                             </div>
                         </div>
-
                     </div>
                 </div>
             </form>

@@ -14,6 +14,9 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
     Route::get('', function() {
         return view('Admin.Welcome');
     })->name('welcome');
+    route::get('/Error505', function() {
+        return view('Admin.Error500');
+    })->name('Error505');
     //Main Category
     Route::resource('/MainCategory', 'Admin\MainCategoriesController');
     // Category
@@ -21,7 +24,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
     //items
     Route::resource('/Items', 'Admin\ItemsController');
     // prices
-    Route::resource('/Items/{item}/Information', 'Admin\ItemDetailsController');
+    Route::resource('/Items/{itemID}/Information', 'Admin\ItemDetailsController');
     Route::post('/Item/{id}/Price/addNew', ['uses' => 'Admin\PricesController@addPrice'])->name('Item.addPrice');
 });
 

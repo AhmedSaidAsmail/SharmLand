@@ -115,25 +115,7 @@
                         </form>
                     </div>
                 </div>
-                <div>
-                    <form action="{{route('Information.create',['item'=>$Item->id])}}" method="get">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                    <label>Add New Details To This Items</label>
-                                    <select name="detail" class="form-control" id="detailsNavigatore">
-                                        <option value="">Select Details to Add</option>
-                                        <option value="inclusion">Inclusions</option>
-                                        <option value="exclusion">Exclusions</option>
-                                        <option value="additional">Additional Information </option>
-                                        <option value="dresse">Dresses</option>
-                                        <option value="note">Notes</option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-                    </form>
-                </div>
+
                 <div class="box">
                     <div class="box-header">
                         <h3 class="box-title">Prices Table</h3>
@@ -197,62 +179,93 @@
                     </div>
                     <!-- /.box-Prices -->
                 </div>
-
-                <!-- Inclusions -->
-                <div class="box">
-                    <div class="box-header">
-                        <h3 class="box-title">Inclusions Table</h3>
-                    </div>
-                    <div class="box-body no-padding">
-                        <table class="table table-striped">
-                            <tr>
-                                <th style="width: 10px">#</th>
-                                <th>Inclusions Text</th>
-                                <th>Edit</th>
-                                <th style="width: 40px">Delete</th>
-                            </tr>
-                            <?php $oredr = 1 ?>
-                            @foreach($Item->inclusion as $inclusion)
-                            <tr>
-                                <td>{{$oredr}}</td>
-                                <td>{{$inclusion->txt}}</td>
-                                <td><a href="" class="btn btn-xs btn-warning">Edit</a></td>
-                                <td><a class="btn btn-xs btn-danger" href="">Delete</a></td>
-                            </tr>
-                            <?php $oredr++ ?>
-                            @endforeach
-                        </table>
-                    </div>
+                <div>
+                    <form action="{{route('Information.create',['itemID'=>$Item->id])}}" method="get">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label>Add New Details To This Items</label>
+                                    <select name="modelName" class="form-control" id="detailsNavigatore">
+                                        <option value="">Select Details to Add</option>
+                                        <option value="inclusion">Inclusions</option>
+                                        <option value="exclusion">Exclusions</option>
+                                        <option value="additional">Additional Information </option>
+                                        <option value="dresse">Dresses</option>
+                                        <option value="note">Notes</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
                 </div>
-                <!-- end Inclusions-->
 
-                <!-- Inclusions -->
-                <div class="box">
-                    <div class="box-header">
-                        <h3 class="box-title">Exclusions Table</h3>
+                <div class="row">
+                    <div class="col-md-6">
+                        <!-- Inclusions -->
+                        <div class="box">
+                            <div class="box-header">
+                                <h3 class="box-title">Inclusions Table</h3>
+                            </div>
+                            <div class="box-body no-padding">
+                                <table class="table table-striped">
+                                    <tr>
+                                        <th style="width: 10px">#</th>
+                                        <th>Inclusions Text</th>
+                                        <th>Edit</th>
+                                        <th style="width: 40px">Delete</th>
+                                    </tr>
+                                    <?php $oredr = 1 ?>
+                                    @foreach($Item->inclusion as $inclusion)
+                                    <tr>
+                                        <td>{{$oredr}}</td>
+                                        <td>{{$inclusion->txt}}</td>
+                                        <td><a href="{{route('Information.edit',['item'=>$Item->id,'Information'=>$inclusion->id,'modelName'=>'inclusion'])}}" class="btn btn-xs btn-warning">Edit</a></td>
+                                        <td><a href="{{route('Information.show',['item'=>$Item->id,'Information'=>$inclusion->id,'modelName'=>'inclusion'])}}"><i class="fa fa-trash"></i></a></td>
+                                    </tr>
+                                    <?php $oredr++ ?>
+                                    @endforeach
+                                </table>
+                            </div>
+                        </div>
+                        <!-- end Inclusions-->
+
                     </div>
-                    <div class="box-body no-padding">
-                        <table class="table table-striped">
-                            <tr>
-                                <th style="width: 10px">#</th>
-                                <th>Exclusions Text</th>
-                                <th>Edit</th>
-                                <th style="width: 40px">Delete</th>
-                            </tr>
-                            <?php $oredr = 1 ?>
-                            @foreach($Item->exclusion as $exclusion)
-                            <tr>
-                                <td>{{$oredr}}</td>
-                                <td>{{$exclusion->txt}}</td>
-                                <td><a href="" class="btn btn-xs btn-warning">Edit</a></td>
-                                <td><a class="btn btn-xs btn-danger" href="">Delete</a></td>
-                            </tr>
-                            <?php $oredr++ ?>
-                            @endforeach
-                        </table>
+                    <div class="col-md-6">
+                        <!-- Inclusions -->
+                        <div class="box">
+                            <div class="box-header">
+                                <h3 class="box-title">Exclusions Table</h3>
+                            </div>
+                            <div class="box-body no-padding">
+                                <table class="table table-striped">
+                                    <tr>
+                                        <th style="width: 10px">#</th>
+                                        <th>Exclusions Text</th>
+                                        <th>Edit</th>
+                                        <th style="width: 40px">Delete</th>
+                                    </tr>
+                                    <?php $oredr = 1 ?>
+                                    @foreach($Item->exclusion as $exclusion)
+                                    <tr>
+                                        <td>{{$oredr}}</td>
+                                        <td>{{$exclusion->txt}}</td>
+                                        <td><a href="{{route('Information.edit',['item'=>$Item->id,'Information'=>$exclusion->id,'modelName'=>'exclusion'])}}" class="btn btn-xs btn-warning">Edit</a></td>
+                                        <td><a href="{{route('Information.show',['item'=>$Item->id,'Information'=>$exclusion->id,'modelName'=>'exclusion'])}}"><i class="fa fa-trash"></i></a></td>
+                                    </tr>
+                                    <?php $oredr++ ?>
+                                    @endforeach
+                                </table>
+                            </div>
+                        </div>
+                        <!-- end Inclusions-->
+
                     </div>
+
                 </div>
-                <!-- end Inclusions-->
+
+
+
+
 
 
 
