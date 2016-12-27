@@ -25,6 +25,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
     Route::resource('/Items', 'Admin\ItemsController');
     // prices
     Route::resource('/Items/{itemID}/Information', 'Admin\ItemDetailsController');
+    route::resource('/Items/{itemID}/Gallery', 'Admin\GalleryController');
     Route::post('/Item/{id}/Price/addNew', ['uses' => 'Admin\PricesController@addPrice'])->name('Item.addPrice');
 });
 

@@ -5,13 +5,14 @@
         <group>
             <file>file:/D:/My%20Work/Web%20Site/Under%20construction/www.EgyptLandTours.com/routes/web.php</file>
             <file>file:/D:/My%20Work/Web%20Site/Under%20construction/www.EgyptLandTours.com/resources/views/Admin/ItemUpdate.blade.php</file>
-            <file>file:/D:/My%20Work/Web%20Site/Under%20construction/www.EgyptLandTours.com/app/MyModels/Admin/Item.php</file>
-            <file>file:/D:/My%20Work/Web%20Site/Under%20construction/www.EgyptLandTours.com/app/MyModels/Admin/Inclusion.php</file>
+            <file>file:/D:/My%20Work/Web%20Site/Under%20construction/www.EgyptLandTours.com/app/Http/Controllers/Admin/UploadImageController.php</file>
+            <file>file:/D:/My%20Work/Web%20Site/Under%20construction/www.EgyptLandTours.com/resources/views/Admin/Basicsort.blade.php</file>
             <file>file:/D:/My%20Work/Web%20Site/Under%20construction/www.EgyptLandTours.com/app/Http/Controllers/Admin/ItemDetailsController.php</file>
-            <file>file:/D:/My%20Work/Web%20Site/Under%20construction/www.EgyptLandTours.com/public/js/admin/admin.js</file>
+            <file>file:/D:/My%20Work/Web%20Site/Under%20construction/www.EgyptLandTours.com/app/MyModels/Admin/Itemsgallrie.php</file>
             <file>file:/D:/My%20Work/Web%20Site/Under%20construction/www.EgyptLandTours.com/app/Http/Controllers/Admin/ItemsController.php</file>
-            <file>file:/D:/My%20Work/Web%20Site/Under%20construction/www.EgyptLandTours.com/resources/views/Admin/ItemDetailsCreate.blade.php</file>
+            <file>file:/D:/My%20Work/Web%20Site/Under%20construction/www.EgyptLandTours.com/app/Http/Controllers/Admin/GalleryController.php</file>
             <file>file:/D:/My%20Work/Web%20Site/Under%20construction/www.EgyptLandTours.com/app/Http/Controllers/Admin/PricesController.php</file>
+            <file>file:/D:/My%20Work/Web%20Site/Under%20construction/www.EgyptLandTours.com/app/Http/Controllers/Admin/MainCategoriesController.php</file>
         </group>
     </open-files>
 </project-private>

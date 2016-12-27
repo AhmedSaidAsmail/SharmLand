@@ -23,13 +23,14 @@
                 <div class="box">
                     <div class="box-header with-border">
                         <div class="form-group">
-                            <button type="submit" class="form-control btn-primary" id="addNew">Add New Catagory</button>
+                            <button type="submit" class="form-control btn btn-default" id="addNew"><i class="fa fa-code"></i> Add New Catagory</button>
                         </div>
-                        @if(Session::has('addMessage'))
+                        @if(Session::has('errorMsg'))
                         <div class="alert alert-danger alert-dismissible">
                             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                            <h4><i class="icon fa fa-ban"></i> Alert!</h4>
-                            {{Session('addMessage')}}
+                            <h4><i class="icon fa fa-ban"></i> {{Session('errorMsg')}} </h4>
+                            ..<a href="#" id="errorDetails">Details</a>
+                            {!! (Session::has('errorDetails'))?'<p id="ErrorMsgDetails">'.Session('errorDetails').'</p>':'' !!}
                         </div>
                         @elseif(count($errors)>0)
                         <div class="alert alert-danger alert-dismissible">
@@ -144,8 +145,8 @@
                                 <tr>
                                     <td>{{$Bsort->name}}</td>
                                     <td>{{$Bsort->title}}</td>
-                                    <td> @if($Bsort->status) <i class="fa fa-circle text-green"></i> @else <i class="fa fa-circle text-gray"></i> @endif </td>
-                                    <td> @if($Bsort->home) <i class="fa fa-circle text-green"></i> @else <i class="fa fa-circle text-gray"></i> @endif </td>
+                                    <td> {!! ($Bsort->status)? '<i class="fa fa-circle text-green"></i>':'<i class="fa fa-circle text-gray"></i>' !!} </td>
+                                    <td> {!! ($Bsort->home)? '<i class="fa fa-circle text-green"></i>':'<i class="fa fa-circle text-gray"></i>' !!} </td>
                                     <td><div class="btn-group">
                                             <button type="button" class="btn btn-default">Action</button>
                                             <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"> <span class="caret"></span> <span class="sr-only">Toggle Dropdown</span> </button>
@@ -191,14 +192,6 @@
 <script>
 $(function() {
     $("#example1").DataTable();
-    $('#example2').DataTable({
-        "paging": true,
-        "lengthChange": false,
-        "searching": false,
-        "ordering": true,
-        "info": true,
-        "autoWidth": false
-    });
 });
 </script>
 @endsection

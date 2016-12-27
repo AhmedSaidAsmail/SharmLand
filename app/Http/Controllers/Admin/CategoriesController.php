@@ -47,7 +47,9 @@ class CategoriesController extends Controller {
         try {
             Sort::create($sort);
         } catch (\Exception $e) {
-            $request->session()->flash('addStatus', $e->getMessage());
+            UploadImageController::removeImg();
+            $request->session()->flash('errorDetails', $e->getMessage());
+            $request->session()->flash('errorMsg', "Oops something went wrong !!");
         }
 
 
@@ -87,11 +89,22 @@ class CategoriesController extends Controller {
             'img'           => 'image']);
         $Sort     = $request->all();
         $category = Sort::find($id);
+        $path     = "/images/sorts/";
+        $exImg    = $category->img;
         if ($request->hasFile('img')) {
             $file        = Input::file('img');
-            $Sort['img'] = UploadImageController::Upload($file, "/images/sorts/", 250);
+            $Sort['img'] = UploadImageController::Upload($file, $path, 250);
         }
-        $category->update($Sort);
+        try{
+          $category->update($Sort);
+          (isset($exImg)) ? UploadImageController::removeExImg($exImg, $path) : '';
+        }
+        catch(\Exception $e)
+        {
+            UploadImageController::removeImg();
+            $request->session()->flash('errorDetails', $e->getMessage());
+            $request->session()->flash('errorMsg', "Oops something went wrong !!");
+        }
         return redirect(route('Category.index'));
     }
     /**

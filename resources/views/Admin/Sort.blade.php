@@ -23,13 +23,14 @@
                 <div class="box">
                     <div class="box-header with-border">
                         <div class="form-group">
-                            <button type="submit" class="form-control btn-primary" id="addNew">Add New Catagory</button>
+                            <button type="submit" class="form-control btn btn-default" id="addNew"><i class="fa fa-database"></i> Add New Catagory</button>
                         </div>
-                        @if(Session::has('addStatus'))
+                        @if(Session::has('errorMsg'))
                         <div class="alert alert-danger alert-dismissible">
                             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                            <h4><i class="icon fa fa-ban"></i> Alert!</h4>
-                            {{Session('addStatus')}}
+                            <h4><i class="icon fa fa-ban"></i> {{Session('errorMsg')}} </h4>
+                            ..<a href="#" id="errorDetails">Details</a>
+                            {!! (Session::has('errorDetails'))?'<p id="ErrorMsgDetails">'.Session('errorDetails').'</p>':'' !!}
                         </div>
                         @elseif(count($errors)>0)
                         <div class="alert alert-danger alert-dismissible">

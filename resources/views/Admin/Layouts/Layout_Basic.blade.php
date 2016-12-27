@@ -12,7 +12,7 @@
         <link rel="stylesheet" href="{{asset('adminlte/dist/css/skins/_all-skins.min.css')}}">
         @yield('Extra_Css')
     </head>
-    <body class="hold-transition skin-blue sidebar-mini">
+    <body class="hold-transition skin-black-light sidebar-mini">
         <div class="wrapper">
             <header class="main-header">
                 <!-- Logo -->

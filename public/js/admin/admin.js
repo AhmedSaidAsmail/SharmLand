@@ -17,6 +17,18 @@ $(document).ready(function() {
             autoDiv.show();
         }
     });
+    $('a#errorDetails').click(function(e){
+        e.preventDefault();
+
+        var detailsDiv=$(this).closest('div').find('#ErrorMsgDetails');
+        if(detailsDiv.is(':visible'))
+        {
+            detailsDiv.fadeOut();
+        }
+        else{
+            detailsDiv.fadeIn();
+        }
+    });
     $('a.deleteItem').click(function() {
         var name = $(this).attr("title");
         var form = $(this).parent('form');

@@ -48,8 +48,9 @@ class MainCategoriesController extends Controller {
         try {
             Basicsort::create($basicSort);
         } catch (\Exception $e) {
-            $request->session()->flash('addStatus', $e->getMessage());
-            $request->session()->flash('addMessage', "This Main Category is existed !!");
+            UploadImageController::removeImg();
+            $request->session()->flash('errorDetails', $e->getMessage());
+            $request->session()->flash('errorMsg', "Oops something went wrong !!");
         }
 
 
@@ -89,11 +90,21 @@ class MainCategoriesController extends Controller {
             'img'         => 'image']);
         $Basicsort    = $request->all();
         $Maincategory = Basicsort::find($id);
+        $path         = "/images/basicsorts/";
+        $exImg        = $Maincategory->img;
         if ($request->hasFile('img')) {
             $file             = Input::file('img');
-            $Basicsort['img'] = UploadImageController::Upload($file, "/images/basicsorts/", 250);
+            $Basicsort['img'] = UploadImageController::Upload($file, $path, 250);
         }
-        $Maincategory->update($Basicsort);
+        try {
+            $Maincategory->update($Basicsort);
+            (isset($exImg)) ? UploadImageController::removeExImg($exImg, $path) : '';
+        } catch (\Exception $e) {
+            UploadImageController::removeImg();
+            $request->session()->flash('errorDetails', $e->getMessage());
+            $request->session()->flash('errorMsg', "Oops something went wrong !!");
+        }
+
         return redirect(route('MainCategory.index'));
     }
     /**
@@ -104,6 +115,9 @@ class MainCategoriesController extends Controller {
      */
     public function destroy($id) {
         $MainCategory = Basicsort::find($id);
+        $path         = "/images/basicsorts/";
+        $exImg        = $MainCategory->img;
+        // to dlete all sub Categories and it's Items
         foreach ($MainCategory->sorts as $category) {
             if (is_null($this->_instance)) {
                 $this->_instance = new CategoriesController();
@@ -111,6 +125,7 @@ class MainCategoriesController extends Controller {
             $this->_instance->destroy($category->id);
         }
         $MainCategory->delete();
+        (isset($exImg)) ? UploadImageController::removeExImg($exImg, $path) : '';
         Session::flash('deleteStatus', "Main Category No: {$id} is Deleted !!");
         return redirect(route('MainCategory.index'));
     }

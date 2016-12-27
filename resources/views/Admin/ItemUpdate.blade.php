@@ -2,6 +2,7 @@
 @section('title','Items Panel | Update')
 @section ('Extra_Css')
 <link rel="stylesheet" type="text/css" href="{{asset('css/admin/style.css')}}">
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/4.3.0/min/dropzone.min.css">
 @endsection
 @section('content')
 <div class="content-wrapper">
@@ -22,7 +23,7 @@
                 <div class="box">
                     <div class="box-header with-border">
                         <div class="form-group">
-                            <button type="submit" class="form-control btn-primary" id="addNew">Update Item : ({{$Item->name}})</button>
+                            <button type="submit" class="btn btn-default form-control" id="addNew">Update Item : ({{$Item->name}})</button>
                         </div>
                     </div>
                     <div id="basicToggle">
@@ -115,6 +116,53 @@
                         </form>
                     </div>
                 </div>
+                <div class="box">
+                    <div class="box-header with-border">
+                        <h3 class="box-title"><a href="#"><i class="fa fa-android"></i> Gallery List</a></h3>
+                    </div>
+                    <div class="box-body">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <form method="post" action="{{route('Gallery.store',['itemID'=>$Item->id])}}" class="dropzone" id="addImages">
+                                    <input type="hidden" value="{{csrf_token()}}" name="_token">
+
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="box">
+                    <div class="box-header with-border">
+                        <h3 class="box-title"><a href="#"><i class="fa fa-th"></i> Item Details</a> Table</h3>
+                    </div>
+                    <div class="box-body">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label>Started At</label>
+                                    <input class="form-control" name="started_at" value="">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label>Ended At</label>
+                                    <input class="form-control" name="ended_at" value="">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label>Availability</label>
+                                    <input class="form-control" name="availability" value="">
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+
 
                 <div class="box">
                     <div class="box-header">
@@ -159,7 +207,7 @@
                                 <th>Second Price Name</th>
                                 <th>Second price</th>
                                 <th></th>
-                                <th></th>
+
                             </tr>
 
                             @if(isset($Item->price->item_id))
@@ -168,8 +216,8 @@
                                 <td>{{$Item->price->st_price}}</td>
                                 <td>{{$Item->price->sec_name}}</td>
                                 <td>{{$Item->price->sec_price}}</td>
-                                <td><a class="btn btn-xs btn-warning">Edit</a></td>
-                                <td><a class="btn btn-xs btn-danger">Delete</a></td>
+                                <td><a class="btn btn-xs btn-warning">Edit</a> <a class="btn btn-xs btn-danger">Delete</a></td>
+
                             </tr>
                             @endif
 
@@ -228,6 +276,60 @@
                             </div>
                         </div>
                         <!-- end Inclusions-->
+                        <!-- Additional Information -->
+                        <div class="box">
+                            <div class="box-header">
+                                <h3 class="box-title">Additional Information Table</h3>
+                            </div>
+                            <div class="box-body no-padding">
+                                <table class="table table-striped">
+                                    <tr>
+                                        <th style="width: 10px">#</th>
+                                        <th>Information Text</th>
+                                        <th>Edit</th>
+                                        <th style="width: 40px">Delete</th>
+                                    </tr>
+                                    <?php $oredr = 1 ?>
+                                    @foreach($Item->additional as $additional)
+                                    <tr>
+                                        <td>{{$oredr}}</td>
+                                        <td>{{$additional->txt}}</td>
+                                        <td><a href="{{route('Information.edit',['item'=>$Item->id,'rowID'=>$additional->id,'modelName'=>'additional'])}}" class="btn btn-xs btn-warning">Edit</a></td>
+                                        <td><a href="{{route('Information.show',['item'=>$Item->id,'rowID'=>$additional->id,'modelName'=>'additional'])}}"><i class="fa fa-trash"></i></a></td>
+                                    </tr>
+                                    <?php $oredr++ ?>
+                                    @endforeach
+                                </table>
+                            </div>
+                        </div>
+                        <!-- end Additional Information-->
+                        <!-- Dresses -->
+                        <div class="box">
+                            <div class="box-header">
+                                <h3 class="box-title">Dresses Table</h3>
+                            </div>
+                            <div class="box-body no-padding">
+                                <table class="table table-striped">
+                                    <tr>
+                                        <th style="width: 10px">#</th>
+                                        <th>Dresses Text</th>
+                                        <th>Edit</th>
+                                        <th style="width: 40px">Delete</th>
+                                    </tr>
+                                    <?php $oredr = 1 ?>
+                                    @foreach($Item->dresse as $dresse)
+                                    <tr>
+                                        <td>{{$oredr}}</td>
+                                        <td>{{$dresse->txt}}</td>
+                                        <td><a href="{{route('Information.edit',['item'=>$Item->id,'rowID'=>$dresse->id,'modelName'=>'dresse'])}}" class="btn btn-xs btn-warning">Edit</a></td>
+                                        <td><a href="{{route('Information.show',['item'=>$Item->id,'rowID'=>$dresse->id,'modelName'=>'dresse'])}}"><i class="fa fa-trash"></i></a></td>
+                                    </tr>
+                                    <?php $oredr++ ?>
+                                    @endforeach
+                                </table>
+                            </div>
+                        </div>
+                        <!-- end Dresses-->
 
                     </div>
                     <div class="col-md-6">
@@ -258,6 +360,33 @@
                             </div>
                         </div>
                         <!-- end Inclusions-->
+                        <!-- Notes -->
+                        <div class="box">
+                            <div class="box-header">
+                                <h3 class="box-title">Notes Table</h3>
+                            </div>
+                            <div class="box-body no-padding">
+                                <table class="table table-striped">
+                                    <tr>
+                                        <th style="width: 10px">#</th>
+                                        <th>Notes Text</th>
+                                        <th>Edit</th>
+                                        <th style="width: 40px">Delete</th>
+                                    </tr>
+                                    <?php $oredr = 1 ?>
+                                    @foreach($Item->note as $note)
+                                    <tr>
+                                        <td>{{$oredr}}</td>
+                                        <td>{{$note->txt}}</td>
+                                        <td><a href="{{route('Information.edit',['item'=>$Item->id,'rowID'=>$note->id,'modelName'=>'note'])}}" class="btn btn-xs btn-warning">Edit</a></td>
+                                        <td><a href="{{route('Information.show',['item'=>$Item->id,'rowID'=>$note->id,'modelName'=>'note'])}}"><i class="fa fa-trash"></i></a></td>
+                                    </tr>
+                                    <?php $oredr++ ?>
+                                    @endforeach
+                                </table>
+                            </div>
+                        </div>
+                        <!-- end Notes-->
 
                     </div>
 
@@ -280,5 +409,6 @@
 @endsection
 @section('Extra_Js')
 <script src="{{asset('js/admin/admin.js')}}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/4.3.0/min/dropzone.min.js"></script>
 
 @endsection
